@@ -1,0 +1,79 @@
+GridView.builder(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200, childAspectRatio: 1 / 2),
+          itemCount: 6,
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: const Color.fromARGB(255, 44, 44, 44)),
+              margin: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(6),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 300,
+                    width: 200,
+                    child: ClipRRect(
+                      child: Image.asset(daftarPopuler[index].gambar,
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4, left: 4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          daftarPopuler[index].nama_Tempat,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  daftarPopuler[index].lokasi_tempat,
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  daftarPopuler[index].tanggal,
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w200),
+                                )
+                              ],
+                            ),
+                            Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 1,
+                                        color: const Color.fromARGB(
+                                            242, 254, 250, 133)),
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Center(
+                                  child: Text(
+                                    daftarPopuler[index].Rating,
+                                    style: const TextStyle(
+                                        color:
+                                            Color.fromARGB(242, 254, 250, 133)),
+                                  ),
+                                ))
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }),
